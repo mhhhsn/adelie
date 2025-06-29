@@ -16,6 +16,10 @@ else
 	KEYWORDS="amd64 ~arm arm64 ~hppa ~m68k ppc64 ~riscv x86"
 fi
 
+PATCHES=(
+	"${FILESDIR}/01_disable-bold-italic.diff"
+)
+
 LICENSE="MIT"
 SLOT="0"
 

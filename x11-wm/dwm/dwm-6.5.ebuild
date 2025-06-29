@@ -16,6 +16,10 @@ else
 	KEYWORDS="amd64 ~arm arm64 ppc ppc64 ~riscv x86"
 fi
 
+PATCHES=(
+	"${FILESDIR}/01_centeredmaster.diff"
+)
+
 LICENSE="MIT"
 SLOT="0"
 IUSE="xinerama"
