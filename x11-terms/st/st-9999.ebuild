@@ -16,6 +16,12 @@ else
 	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~m68k ~ppc64 ~riscv ~x86"
 fi
 
+PATCHES=(
+	"${FILESDIR}/01_disable-bold-italic-fonts-0.8.2.diff"
+	"${FILESDIR}/02_any-geometry-0.8.1.diff"
+	"${FILESDIR}/9999_custom-config.diff"
+)
+
 LICENSE="MIT"
 SLOT="0"
 
