@@ -18,6 +18,11 @@ fi
 
 PATCHES=(
 	"${FILESDIR}/01_centeredmaster.diff"
+	"${FILESDIR}/50_larger-font.diff"
+	"${FILESDIR}/51_colortheme.diff"
+	"${FILESDIR}/52_spawn-keys.diff"
+	"${FILESDIR}/53_volume-keys.diff"
+	"${FILESDIR}/90_general-keys.diff"
 )
 
 LICENSE="MIT"

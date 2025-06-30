@@ -1,0 +1,32 @@
+diff --git i/config.def.h w/config.def.h
+index f1dfd43..e44a912 100644
+--- i/config.def.h
++++ w/config.def.h
+@@ -1,5 +1,7 @@
+ /* See LICENSE file for copyright and license details. */
+ 
++#include <X11/XF86keysym.h>
++
+ /* appearance */
+ static const unsigned int borderpx  = 1;        /* border pixel of windows */
+ static const unsigned int snap      = 32;       /* snap pixel */
+@@ -66,12 +68,19 @@ static const char *termcmd[]  = { "st", NULL };
+ static const char *browsercmd[] = { "librewolf", NULL };
+ static const char *mailcmd[] = { "claws-mail", NULL };
+ 
++static const char *vol_up[]   = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%",    NULL };
++static const char *vol_down[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%",    NULL };
++static const char *vol_mute[] = { "pactl", "set-sink-mute",   "@DEFAULT_SINK@", "toggle", NULL };
++
+ static const Key keys[] = {
+ 	/* modifier                     key        function        argument */
+ 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+ 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+ 	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
+ 	{ MODKEY,                       XK_r,      spawn,          {.v = mailcmd } },
++	{ 0,              XF86XK_AudioRaiseVolume, spawn,          { .v = vol_up } },
++	{ 0,              XF86XK_AudioLowerVolume, spawn,          { .v = vol_down } },
++	{ 0,                     XF86XK_AudioMute, spawn,          { .v = vol_mute } },
+ 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+ 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+ 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
