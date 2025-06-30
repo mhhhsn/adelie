@@ -1,0 +1,13 @@
+diff --git i/config.def.h w/config.def.h
+index b832a90..75c9bb0 100644
+--- i/config.def.h
++++ w/config.def.h
+@@ -5,7 +5,7 @@
+  *
+  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
+  */
+-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
++static char *font = "Cozette:size=20:antialias=false:autohint=false";
+ 
+ /* disable bold, italic and roman fonts globally */
+ int disablebold = 0;
