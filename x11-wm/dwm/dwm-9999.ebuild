@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit savedconfig toolchain-funcs
+inherit toolchain-funcs
 
 DESCRIPTION="a dynamic window manager for X11"
 HOMEPAGE="https://dwm.suckless.org/"
@@ -15,6 +15,10 @@ else
 	SRC_URI="https://dl.suckless.org/${PN}/${P}.tar.gz"
 	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
 fi
+
+PATCHES=(
+	"${FILESDIR}/01_centeredmaster.diff"
+)
 
 LICENSE="MIT"
 SLOT="0"
@@ -41,8 +45,6 @@ src_prepare() {
 		-e "/^X11LIB/{s:/usr/X11R6/lib:/usr/$(get_libdir)/X11:}" \
 		-e '/^X11INC/{s:/usr/X11R6/include:/usr/include/X11:}' \
 		config.mk || die
-
-	restore_config config.h
 }
 
 src_compile() {
@@ -63,6 +65,4 @@ src_install() {
 	doins "${FILESDIR}"/dwm.desktop
 
 	dodoc README
-
-	save_config config.h
 }
