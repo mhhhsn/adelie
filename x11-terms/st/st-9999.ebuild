@@ -3,7 +3,7 @@
 
 EAPI=8
 
-inherit desktop savedconfig toolchain-funcs
+inherit desktop toolchain-funcs
 
 DESCRIPTION="Simple terminal implementation for X"
 HOMEPAGE="https://st.suckless.org/"
@@ -49,8 +49,6 @@ src_prepare() {
 	sed -i \
 		-e '/tic/d' \
 		Makefile || die
-
-	restore_config config.h
 }
 
 src_configure() {
@@ -67,8 +65,6 @@ src_install() {
 	dodoc TODO
 
 	make_desktop_entry ${PN} simpleterm utilities-terminal 'System;TerminalEmulator;' ''
-
-	save_config config.h
 }
 
 pkg_postinst() {
