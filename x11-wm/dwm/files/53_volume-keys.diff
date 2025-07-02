@@ -14,9 +14,9 @@ index f1dfd43..e44a912 100644
  static const char *browsercmd[] = { "librewolf", NULL };
  static const char *mailcmd[] = { "claws-mail", NULL };
  
-+static const char *vol_up[]   = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%",    NULL };
-+static const char *vol_down[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%",    NULL };
-+static const char *vol_mute[] = { "pactl", "set-sink-mute",   "@DEFAULT_SINK@", "toggle", NULL };
++static const char *vol_up[]   = { "wpctl", "set-volume", "@DEFAULT_SINK@", "5%+",    NULL };
++static const char *vol_down[] = { "wpctl", "set-volume", "@DEFAULT_SINK@", "5%-",    NULL };
++static const char *vol_mute[] = { "wpctl", "set-mute",   "@DEFAULT_SINK@", "toggle", NULL };
 +
  static const Key keys[] = {
  	/* modifier                     key        function        argument */

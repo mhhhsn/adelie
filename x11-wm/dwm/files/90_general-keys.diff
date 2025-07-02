@@ -7,7 +7,7 @@ index e44a912..c02d813 100644
  	/* modifier                     key        function        argument */
  	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 -	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-+	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
++	{ MODKEY,                       XK_s,      spawn,          {.v = termcmd } },
  	{ MODKEY,                       XK_w,      spawn,          {.v = browsercmd } },
  	{ MODKEY,                       XK_r,      spawn,          {.v = mailcmd } },
  	{ 0               XF86XK_AudioRaiseVolume, spawn,          { .v = vol_up } },
