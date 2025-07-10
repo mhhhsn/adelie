@@ -20,6 +20,7 @@ PATCHES=(
 	"${FILESDIR}/01_disable-bold-italic-fonts-0.8.2.diff"
 	"${FILESDIR}/02_expected-anysize-0.9.diff"
 	"${FILESDIR}/50_cozette-font.diff"
+	"${FILESDIR}/51_colors.diff"
 )
 
 LICENSE="MIT"
