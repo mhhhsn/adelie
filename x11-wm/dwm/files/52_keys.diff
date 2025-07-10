@@ -1,5 +1,5 @@
 diff --git i/config.def.h w/config.def.h
-index 4811f38..47920c9 100644
+index 19a0c61..0267c5e 100644
 --- i/config.def.h
 +++ w/config.def.h
 @@ -1,5 +1,7 @@
@@ -10,7 +10,7 @@ index 4811f38..47920c9 100644
  /* appearance */
  static const unsigned int borderpx  = 1;        /* border pixel of windows */
  static const unsigned int snap      = 32;       /* snap pixel */
-@@ -60,14 +62,33 @@ static const Layout layouts[] = {
+@@ -58,14 +60,33 @@ static const Layout layouts[] = {
  #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
  
  /* commands */
@@ -18,8 +18,8 @@ index 4811f38..47920c9 100644
 -static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 -static const char *termcmd[]  = { "st", NULL };
 +static char dmenumon[2] = "0"; /* component of dmenu_cmd, manipulated in spawn() */
-+static const char *dmenu_cmd[]     = { "dmenu_run", "-m",         dmenumon,         NULL };
-+static const char *term_cmd[]      = { "st",        NULL };
++static const char *dmenucmd[]     = { "dmenu_run", "-m",         dmenumon,         NULL };
++static const char *termcmd[]      = { "st",        NULL };
 +static const char *browser_cmd[]   = { "librewolf", NULL };
 +static const char *files_cmd[]     = { "true",      NULL }; /* WIP */
 +static const char *mail_cmd[]      = { "st",        "-e",         "neomutt",        NULL };
@@ -33,14 +33,13 @@ index 4811f38..47920c9 100644
  
  static const Key keys[] = {
  	/* modifier                     key        function        argument */
--	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+ 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 -	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-+	{ MODKEY,                       XK_p,      spawn,          {.v = dmenu_cmd } },
 +	{ MODKEY,                       XK_q,      spawn,          {.v = music_cmd } },
-+	{ MODKEY|ShiftMask              XK_q,      spawn,          {.v = mixer_cmd } },
-+	{ MODKEY,                       XK_s,      spawn,          {.v = term_cmd } },
++	{ MODKEY|ShiftMask,             XK_q,      spawn,          {.v = mixer_cmd } },
++	{ MODKEY,                       XK_s,      spawn,          {.v = termcmd } },
 +	{ MODKEY,                       XK_w,      spawn,          {.v = browser_cmd } },
-+	{ MODKEY|ShiftMask              XK_w,      spawn,          {.v = wlan_scan_cmd } },
++	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = wlan_scan_cmd } },
 +	{ MODKEY,                       XK_e,      spawn,          {.v = files_cmd } },
 +	{ MODKEY,                       XK_r,      spawn,          {.v = mail_cmd } },
 +	{ 0,         XF86XK_AudioRaiseVolume,      spawn,          { .v = vol_up } },
