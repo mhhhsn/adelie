@@ -3,18 +3,11 @@
 
 EAPI=8
 
-inherit desktop toolchain-funcs
+inherit git-r3 desktop toolchain-funcs
 
 DESCRIPTION="Simple terminal implementation for X"
 HOMEPAGE="https://st.suckless.org/"
-
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://git.suckless.org/${PN}"
-else
-	SRC_URI="https://dl.suckless.org/${PN}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~hppa ~m68k ~ppc64 ~riscv ~x86"
-fi
+EGIT_REPO_URI="https://git.suckless.org/${PN}"
 
 PATCHES=(
 	"${FILESDIR}/01_disable-bold-italic-fonts-0.8.2.diff"

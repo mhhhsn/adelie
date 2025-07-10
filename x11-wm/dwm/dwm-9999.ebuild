@@ -3,18 +3,12 @@
 
 EAPI=8
 
-inherit toolchain-funcs
+inherit git-r3 toolchain-funcs
 
 DESCRIPTION="a dynamic window manager for X11"
 HOMEPAGE="https://dwm.suckless.org/"
 
-if [[ ${PV} == 9999 ]]; then
-	inherit git-r3
-	EGIT_REPO_URI="https://git.suckless.org/dwm"
-else
-	SRC_URI="https://dl.suckless.org/${PN}/${P}.tar.gz"
-	KEYWORDS="~amd64 ~arm ~arm64 ~ppc ~ppc64 ~riscv ~x86"
-fi
+EGIT_REPO_URI="https://git.suckless.org/dwm"
 
 PATCHES=(
 	"${FILESDIR}/01_centeredmaster.diff"
