@@ -13,7 +13,7 @@ EGIT_REPO_URI="https://git.suckless.org/dwm"
 PATCHES=(
 	"${FILESDIR}/01_centeredmaster.diff"
 	"${FILESDIR}/50_larger-font.diff"
-	"${FILESDIR}/51_colortheme.diff"
+	"${FILESDIR}/51_colors.diff"
 	"${FILESDIR}/52_keys.diff"
 )
 
