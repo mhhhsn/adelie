@@ -1,13 +1,15 @@
 diff --git i/config.def.h w/config.def.h
-index b832a90..75c9bb0 100644
+index 7ca1274..9929c4a 100644
 --- i/config.def.h
 +++ w/config.def.h
-@@ -5,7 +5,7 @@
-  *
+@@ -6,8 +6,8 @@
   * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
   */
--static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
-+static char *font = "Cozette:size=20:antialias=false:autohint=false";
+ static char *fonts[] = {
+-	"Liberation Mono:pixelsize=12:antialias=true:autohint=true",
+-	"Gohu GohuFont:pixelsize=11:antialias=false:autohint=false",
++	"Cozette:size=20:antialias=false:autohint=false",
++	"IBM Plex Mono:pixelsize=20:antialias=true:autohint=false",
+ };
+ static size_t currentfont = 0;
  
- /* disable bold, italic and roman fonts globally */
- int disablebold = 0;
