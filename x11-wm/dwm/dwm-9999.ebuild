@@ -11,10 +11,16 @@ HOMEPAGE="https://dwm.suckless.org/"
 EGIT_REPO_URI="https://git.suckless.org/dwm"
 
 PATCHES=(
-	"${FILESDIR}/01_centeredmaster.diff"
-	"${FILESDIR}/50_larger-font.diff"
-	"${FILESDIR}/51_colors.diff"
-	"${FILESDIR}/52_keys.diff"
+	${FILESDIR}/01_layouts.diff
+	${FILESDIR}/02_doublequit.diff
+	${FILESDIR}/03_focusmaster.diff
+	${FILESDIR}/04_push.diff
+	${FILESDIR}/05_scratchpad.diff
+	${FILESDIR}/06_swallow.diff
+	${FILESDIR}/07_bulkkill.diff
+	${FILESDIR}/50_larger-font.diff
+	${FILESDIR}/51_colors.diff
+	${FILESDIR}/52_keys.diff
 )
 
 LICENSE="MIT"
@@ -23,6 +29,7 @@ IUSE="xinerama"
 
 RDEPEND="
 	media-libs/fontconfig
+	x11-libs/libxcb
 	x11-libs/libX11
 	>=x11-libs/libXft-2.3.5
 	xinerama? ( x11-libs/libXinerama )

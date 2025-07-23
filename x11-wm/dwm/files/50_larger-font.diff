@@ -1,9 +1,9 @@
-diff --git i/config.def.h w/config.def.h
-index aabe6c0..4503e5d 100644
---- i/config.def.h
-+++ w/config.def.h
-@@ -5,8 +5,8 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
- static const unsigned int snap      = 32;       /* snap pixel */
+diff --git c/config.def.h i/config.def.h
+index a7a653c..91d1e9e 100644
+--- c/config.def.h
++++ i/config.def.h
+@@ -6,8 +6,8 @@ static const unsigned int snap      = 32;       /* snap pixel */
+ static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
  static const int showbar            = 1;        /* 0 means no bar */
  static const int topbar             = 1;        /* 0 means bottom bar */
 -static const char *fonts[]          = { "monospace:size=10" };

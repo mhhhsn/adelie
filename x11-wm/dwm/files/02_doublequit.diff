@@ -1,0 +1,52 @@
+diff --git c/config.def.h w/config.def.h
+index 7ee7f9d..176294a 100644
+--- c/config.def.h
++++ w/config.def.h
+@@ -21,6 +21,9 @@ static const char *colors[][3]      = {
+ /* tagging */
+ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+ 
++/* Lockfile */
++static char lockfile[] = "/tmp/dwm.lock";
++
+ static const Rule rules[] = {
+ 	/* xprop(1):
+ 	 *	WM_CLASS(STRING) = instance, class
+diff --git c/dwm.c w/dwm.c
+index b1c07e8..55925bd 100644
+--- c/dwm.c
++++ w/dwm.c
+@@ -27,6 +27,7 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
++#include <time.h>
+ #include <unistd.h>
+ #include <sys/types.h>
+ #include <sys/wait.h>
+@@ -1262,7 +1263,24 @@ propertynotify(XEvent *e)
+ void
+ quit(const Arg *arg)
+ {
+-	running = 0;
++	FILE *fd = NULL;
++	struct stat filestat;
++
++	if ((fd = fopen(lockfile, "r")) && stat(lockfile, &filestat) == 0) {
++		fclose(fd);
++
++		if (filestat.st_ctime <= time(NULL)-2)
++			remove(lockfile);
++	}
++
++	if ((fd = fopen(lockfile, "r")) != NULL) {
++		fclose(fd);
++		remove(lockfile);
++		running = 0;
++	} else {
++		if ((fd = fopen(lockfile, "a")) != NULL)
++			fclose(fd);
++	}
+ }
+ 
+ Monitor *
