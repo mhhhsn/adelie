@@ -25,6 +25,10 @@ DEPEND="${RDEPEND}
 BDEPEND="virtual/pkgconfig"
 
 PATCHES=(
+	$FILESDIR/01_center.diff
+	$FILESDIR/02_noinputlines.diff
+	$FILESDIR/03_border.diff
+	$FILESDIR/04_vi-mode.diff
 	"${FILESDIR}"/${PN}-5.2-gentoo.patch
 	"${FILESDIR}/51_theme.diff"
 )

@@ -1,11 +1,8 @@
-From 3c494e2289c93ab6262409f9498866bdfd57bcf4 Mon Sep 17 00:00:00 2001
-From: Georgy Yakovlev <gyakovlev@gentoo.org>
-Date: Fri, 7 Oct 2022 11:29:04 -0700
-Subject: [PATCH] gentoo patch
-
+diff --git a/config.mk b/config.mk
+index dcc5bb3dc3..7747771cb2 100644
 --- a/config.mk
 +++ b/config.mk
-@@ -20,13 +20,13 @@ FREETYPEINC = /usr/include/freetype2
+@@ -20,13 +20,13 @@
  #MANPREFIX = ${PREFIX}/man
  
  # includes and libs
